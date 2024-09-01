@@ -14,7 +14,7 @@ class ProductPage(BasePage):
     def should_be_correct_text_in_message_item_in_cart(self):
         item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME)
         message_item = self.browser.find_element(*ProductPageLocators.MESSAGE_ITEM)
-        assert search(item_name.text, message_item.text), "Item-name not found in Message Item-in-cart"
+        assert message_item.text == item_name.text, "Item-name not found in Message Item-in-cart"
 
     def should_be_message_price_cart(self):
         assert self.is_element_present(*ProductPageLocators.MESSAGE_PRICE), "Message Price-cart is not presented"
@@ -22,5 +22,5 @@ class ProductPage(BasePage):
     def should_be_correct_amount_in_message_price_cart(self):
         item_price = self.browser.find_element(*ProductPageLocators.ITEM_PRICE)
         message_price = self.browser.find_element(*ProductPageLocators.MESSAGE_PRICE)
-        assert search(item_price.text, message_price.text), "Item-price not found in Message Price-cart"
+        assert message_price.text == item_price.text, "Item-price not found in Message Price-cart"
 
