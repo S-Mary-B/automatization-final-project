@@ -12,6 +12,11 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
+    def go_to_basket_page(self):
+        header_basket_button = self.browser.find_element(*BasePageLocators.HEADER_BASKET_BUTTON)
+        header_basket_button.click()
+        # return BasketPage(browser=self.browser, url=self.browser.current_url)
+
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
@@ -60,5 +65,5 @@ class BasePage():
         except NoAlertPresentException:
             print("No second alert presented")
 
-
+    
 
